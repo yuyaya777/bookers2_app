@@ -18,6 +18,7 @@
             </tr>
           </tbody>
         </table>
+        <%= link_to "", edit_user_path(@user.id), class:"btn btn-outline-secondary btn-block fas fa-user-cog" %>
         <h2 class="mt-3">New Book</h2>
         <%= form_with model:@book, local:true do |book| %>
         <h4>Title</h4>
@@ -44,8 +45,8 @@
               </td>
               <td><%= @showbook.title %></td>
               <td><%= @showbook.body %></td>
-              <td><%= link_to 'Edit', edit_book_path(@showbook.id) %></td>
-              <td><%= link_to 'Delete', book_path(@showbook.id), method: :delete, "data-confirm" => "本当に消しますか?" %></td>
+              <td><%= link_to 'Edit', edit_book_path(@showbook.id), class:"btn btn-sm btn-success" %></td>
+              <td><%= link_to 'Delete', book_path(@showbook.id), method: :delete, "data-confirm" => "本当に消しますか?", class:"btn btn-sm btn-danger" %></td>
             </tr>
             </tr>
           </tbody>
