@@ -29,7 +29,7 @@
         <% end %>
       </div>
       <div class="col-md-8 offset-md-1">
-        <h2>Books</h2>
+        <h2>Book detail</h2>
         <table class="table table-hover table-inverse">
           <thead>
             <th></th>
@@ -43,7 +43,7 @@
                     <%= attachment_image_tag @showbook.user, :profile_image %><%= @showbook.user.name %>
                   <% end %>
               </td>
-              <td><%= @showbook.title %></td>
+              <td><%= link_to @showbook.title, book_path %></td>
               <td><%= @showbook.body %></td>
               <td><%= link_to 'Edit', edit_book_path(@showbook.id), class:"btn btn-sm btn-success" %></td>
               <td><%= link_to 'Delete', book_path(@showbook.id), method: :delete, "data-confirm" => "本当に消しますか?", class:"btn btn-sm btn-danger" %></td>
