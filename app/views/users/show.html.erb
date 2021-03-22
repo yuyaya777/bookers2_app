@@ -4,23 +4,28 @@
     <div class="row">
       <div class="col-md-3">
         <h2>User info</h2>
-        <%= form_with model:@user, local:true do |f| %>
-        <%= f.text_field :name %>
+        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: 'no_image.jpg' %>
         <table class="table">
           <tbody>
             <tr></tr>
-            <tr></tr>
+            <tr>
+              <th>name</th>
+              <th><%= @user.name %></th>
+            </tr>
+            <tr>
+              <th>introduction</th>
+              <th><%= @user.introduction %></th>
+            </tr>
           </tbody>
         </table>
-        <% end %>
         <h2 class="mt-3">New Book</h2>
-        <%= form_with model:@book, local:true do |book| %>
-        <h4>Title</h4>
-        <%= book.text_field :title %>
-        <h4>Opinion</h4>
-        <%= book.text_area :body %>
-        <%= book.submit "Create Book", class:"btn btn-success" %>
-        <% end %>
+          <%= form_with model:@book, local:true do |book| %>
+          <h4>Title</h4>
+          <%= book.text_field :title %>
+          <h4>Opinion</h4>
+          <%= book.text_area :body %>
+          <%= book.submit "Create Book", class:"btn btn-success" %>
+          <% end %>
       </div>
       <div class="col-md-8 offset-md-1">
         <h2>Books</h2>
@@ -34,10 +39,12 @@
           <tbody>
             <% @books.each do |book| %>
             <tr>
+              <td></td>
               <td><%= book.title %></td>
               <td><%= book.body %></td>
             </tr>
             <% end %>
+            <%= paginate @books %>
           </tbody>
         </table>
       </div>

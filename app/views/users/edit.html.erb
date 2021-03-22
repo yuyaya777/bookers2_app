@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/06d6f7a8b1.js" crossorigin="anonymous"></script>
+  </head>
+
 <main>
   <p id="notice"></p>
   <div class="container">
@@ -7,6 +20,7 @@
         <label for="inputName">Name</label>
         <%= f.text_field :name, autofocus: true, id:"inputName" %>
         <label for="inputImage">Image</label>
+        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: 'no_image.jpg' %>
         <%= f.attachment_field :profile_image %>
         <%= f.submit "Update User", class: 'btn btn-sm btn-success' %>
       <% end %>
